@@ -72,7 +72,7 @@ class TgScanner:
             print(e)
             raise e
 
-        logging.info("Scan finished")
+        logging.info(f"Scan finished, {books} books added")
 
 
 def main():
