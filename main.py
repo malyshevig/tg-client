@@ -13,5 +13,11 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('PyCharm')
 
+    from books_meta import worker
+    from books_storage.storage import BooksStorage
+
+    storage = BooksStorage()
+    worker.main(storage)
+    storage.close()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

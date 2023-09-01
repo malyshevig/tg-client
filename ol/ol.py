@@ -7,7 +7,7 @@ ol = OpenLibrary(base_url=u'http://localhost:8080')
 #author_olid = ol.Author.get_olid_by_name('Dan Brown')
 #author_obj = ol.get(author_olid)
 
-ol.
+
 
 book = common.Book(
     title="Warlight: A novel",

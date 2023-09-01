@@ -1,10 +1,8 @@
 # importing required modules
-import PyPDF2
 import re
 import unittest
 import pdftotext
-import isbnlib
-import isbn
+from books_meta import isbn
 
 
 # ISBN-10
@@ -89,7 +87,6 @@ class PdfTest(unittest.TestCase):
                 print(ex)
 
     def test2(self):
-        import os
 
         f = "/Volumes/SSD/download/Practical Shader Development Kyle Halladay.pdf"
         f = "/Volumes/SSD/download/Геймдизайн.pdf"
@@ -97,7 +94,6 @@ class PdfTest(unittest.TestCase):
 
         isbn_list = get_isbn(f)
         for isbn in isbn_list:
-            print (isbnlib.meta(isbn))
-        print(f"file = {f} isbn={isbn}")
+           print(f"file = {f} isbn={isbn}")
 
 

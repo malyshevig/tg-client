@@ -3,6 +3,7 @@ from datetime import datetime
 from telethon.tl.custom.file import File
 from telethon.tl.custom.message import Message
 from telethon.tl.custom.dialog import Dialog
+from typing import Optional
 
 @dataclass
 class LDialog:
@@ -19,16 +20,17 @@ class LMessage:
     text: str
     tg_id: str
 
-
-
 @dataclass
 class LBook:
     filename: str
     size: int
     doctype: str
-    tg_id : int
-    dlg_id: int
+    tg_id : str
+    dlg_id: float
     msg_id: int
+    keys: Optional[list] = None
+    hash: Optional[str] = None
+    meta: Optional[object] = None
 
 
 def get_dialog(d: Dialog) -> LDialog:
@@ -45,6 +47,7 @@ def get_dialog(d: Dialog) -> LDialog:
 
 def get_message(d: Message, dlg_id) -> LMessage:
     return LMessage(dlg_id=dlg_id, dt=d.date, text=d.text,tg_id=d.id )
+
 
 def get_file(file: File, dlg_id, msg_id) -> LMessage:
     return LBook(filename=file.name, tg_id=file.id, size = file.size, doctype=file.mime_type, dlg_id=dlg_id, msg_id = msg_id)
